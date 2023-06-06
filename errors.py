@@ -3,9 +3,11 @@
 import sys
 import os
 
+# Look before You Leap - LBYL
+
 if os.path.exists("names.txt"):
 	print("File exists")
-	input("...") # race conditional
+	input("...") # race condition
 	names = open("names.txt").readlines()
 else:
 	print("[Error] file 'names.txt' not found")
