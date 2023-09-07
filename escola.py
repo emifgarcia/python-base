@@ -21,7 +21,7 @@ Sala 2: Antonio
 """
 
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __author__ = "Marcelo Garcia"
 __license__ = "unlicense"
 
@@ -36,24 +36,24 @@ aula_danca = ["Gustavo", "Sofia", "Joana", "Antonio"]
 # listar alunos em cada atividade por sala
 
 
-aulas = {
-	"Aula Inglês": aula_ingles,
-	"Aula Música": aula_musica,
-	"Aula Dança": aula_danca,
-}
+atividades = [
+	("Inglês", aula_ingles), 
+	("Música", aula_musica), 
+	("Dança", aula_danca)
+	]
 
-for nome, atividade in aulas.items():
-	alunos_atividade_sala1 = []
-	alunos_atividade_sala2 = []
-	for aluno in atividade:
+
+for atividade in atividades:
+	lista_sala1 = []
+	lista_sala2 = []
+	for aluno in atividade[1]:
 		if aluno in sala1:
-			alunos_atividade_sala1.append(aluno)
+			lista_sala1.append(aluno)
 		elif aluno in sala2:
-			alunos_atividade_sala2.append(aluno)
-	print(nome)
-	print("Sala 1:", alunos_atividade_sala1)
-	print("Sala 2:", alunos_atividade_sala2)
-
+			lista_sala2.append(aluno)
+	print(atividade[0])
+	print("Sala 1:", lista_sala1)
+	print("Sala 2:", lista_sala2)
 
 
 
