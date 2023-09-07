@@ -21,7 +21,7 @@ Sala 2: Antonio
 """
 
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 __author__ = "Marcelo Garcia"
 __license__ = "unlicense"
 
@@ -43,15 +43,15 @@ atividades = [
 	]
 
 
-for atividade in atividades:
+for nome, atividade in atividades: #desempacota tupla igual diciionário
 	lista_sala1 = []
 	lista_sala2 = []
-	for aluno in atividade[1]:
+	for aluno in atividade:
 		if aluno in sala1:
 			lista_sala1.append(aluno)
 		elif aluno in sala2:
 			lista_sala2.append(aluno)
-	print(atividade[0])
+	print(nome)
 	print("Sala 1:", lista_sala1)
 	print("Sala 2:", lista_sala2)
 
