@@ -18,7 +18,7 @@ Execucao:
 """
 
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __author__ = "Marcelo Garcia"
 __licensa__ = "Unlicense"
 
@@ -27,16 +27,16 @@ import os
 
 current_language = os.getenv("LANG", "en_US")[:5]
 
-msg = "Hello, world!"
 
-if current_language == "pt_BR":
-	msg = "Olá, mundo!"
-elif current_language == "it_IT":
-	msg = "Ciao, mundo!"
-elif current_language == "es_SP":
-	msg = "Hola, mundo!"
-elif current_language == "fr_FR":
-	msg = "Bonjur, monde!"	
+msg = {
+	"pt_BR": "Olá, mundo!",
+	"it_IT": "Caio, mundo!",
+	"es_SP": "Hola, mundo!",
+	"fr_FR": "Bonjur, mode!",
+	"en_US": "Hello, world!",
+}
 
-print(msg)
+print(msg[current_language])
+
+
 
