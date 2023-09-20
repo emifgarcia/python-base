@@ -65,12 +65,14 @@ operation, *nums = arguments
 
 validated_numbers = []
 for num in nums:
-	if not num.isdigit():
+	if not num.replace(".", "").isdigit(): #valida se a string só tem digitos
 		print("Invalid arguments: arguments 2 and 3 must be numbers")
 		sys.exit()
-	elif num.isdigit():
+	elif "." in num:
+		num = float(num) 
+	else: 
 		num = int(num)
-		validated_numbers.append(num)
+	validated_numbers.append(num)
 
 n1, n2 = validated_numbers
 
@@ -78,9 +80,9 @@ operations = {
 	"sum": n1 + n2,
 	"sub": n1 - n2,
 	"mul": n1 * n2,
-	"div": n1 / n2,
+	"div": n1 / n2, #TO DO: tratar ZeroDivisionError
 }
 
 result = operations[operation]
-print(result)
+print(f"O resultado é {result}")
 
