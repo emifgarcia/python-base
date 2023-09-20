@@ -31,15 +31,25 @@ $ prefixcalc.py div 3
 Invalid operation
 
 
+Os resultados serão salvos em `prefixcalc.log`
+ex:
+timestamp - username - sum 2 4 = 6
+timestamp - username - sub 5 4 = 1
+
+
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __author__ = "Marcelo Garcia"
 __license__ = "unlicense"
 
 
 
 import sys
+import os
+from datetime import datetime
+
+user = os.getenv("USER", "anonymous")
 
 arguments = sys.argv[1:]
 
@@ -84,5 +94,17 @@ operations = {
 }
 
 result = operations[operation]
+
+current_time = datetime.now()
+time_stamp = current_time.timestamp()
+date_time = datetime.fromtimestamp(time_stamp)
+
+log = f"{date_time} - {user} - {operation} {n1} {n2} = {result}"
+
+filepath = os.path.join(os.curdir, "prefixcalc.log")
+with open(filepath, "a") as file:
+	file.write(f"{log}\n")
+
 print(f"O resultado é {result}")
+
 
